@@ -1,12 +1,12 @@
 
 
-import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   NavLink
 } from "react-router-dom";
+import { LazyPage1, LazyPage2, LazyPage3 } from "../01-lazyload/pages/index";
 import logo from '../logo.svg';
 
 export const Navigation = () => {
@@ -17,22 +17,27 @@ export const Navigation = () => {
             <img src={ logo } alt="React logo" />
           <ul>
             <li>
-              <NavLink to="/" activeClassName="nav-active"> Home</NavLink>
+              <NavLink to="/lazy1" activeClassName="nav-active"> Lazy 1</NavLink>
             </li>
             <li>
-              <NavLink to="/about" activeClassName="nav-active" >About</NavLink>
+              <NavLink to="/lazy2" activeClassName="nav-active" >Lazy 2</NavLink>
             </li>
             <li>
-              <NavLink to="/users" activeClassName="nav-active">Users</NavLink>
+              <NavLink to="/lazy3" activeClassName="nav-active">Lazy 3</NavLink>
             </li>
           </ul>
         </nav>
         <Switch>
-          <Route path="/about"/>
+          <Route path="/lazy1">
+            <LazyPage1/>
+          </Route>
+          <Route path="/lazy2">
+            <LazyPage2/>
+          </Route>
             
-          <Route path="/users"/>
-            
-          <Route path="/"/>
+          <Route path="/lazy3">
+          <LazyPage3/>
+          </Route>
             
         </Switch>
       </div>
